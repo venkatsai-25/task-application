@@ -3,10 +3,10 @@ import './App.css';
 
 function App() {
   const [tasks, setTasks] = useState([
-    { id: 1, title: 'Job Task 1', status: 'Assigned' },
-    { id: 2, title: 'Job Task 2', status: 'Not Assigned' },
-    { id: 3, title: 'Job Task 3', status: 'New' },
-    { id: 4, title: 'Job Task 4', status: 'Completed' },
+    { id: 1, title: 'Work 1', status: 'Allocate' },
+    { id: 2, title: 'Work 2', status: 'Not Allocate' },
+    { id: 3, title: 'Work 3', status: 'New' },
+    { id: 4, title: 'Work 4', status: 'Done' },
   ]);
 
   const [newTaskTitle, setNewTaskTitle] = useState('');
@@ -17,7 +17,7 @@ function App() {
     const newTask = {
       id: tasks.length + 1,
       title: newTaskTitle,
-      status: 'not assigned',
+      status: 'Not assigned',
     };
 
     setTasks([...tasks, newTask]);
@@ -38,7 +38,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Task Job Management App</h1>
+      <h1>Management App</h1>
       <div>
         <input
           type="text"
@@ -52,9 +52,9 @@ function App() {
           <li key={task.id}>
             {task.title} - {task.status}
             <button onClick={() => handleUpdateTaskStatus(task.id, 'done')}>
-              Check as Completed
+              Mark As Done
             </button>
-            <button onClick={() => handleDeleteTask(task.id)}>Remove</button>
+            <button onClick={() => handleDeleteTask(task.id)}>Delete</button>
           </li>
         ))}
       </ul>
